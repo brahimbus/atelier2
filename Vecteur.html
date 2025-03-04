@@ -1,0 +1,58 @@
+<script>
+  // Classe Vecteur2D
+  class Vecteur2D {
+    constructor(x = 0, y = 0) {
+      this.x = x;
+      this.y = y;
+    }
+
+    afficher() {
+      return `Vecteur(${this.x}, ${this.y})`;
+    }
+
+    add(v) {
+      return new Vecteur2D(this.x + v.x, this.y + v.y);
+    }
+  }
+
+  // Classe Rectangle
+  class Rectangle {
+    constructor(longueur = 0, largeur = 0) {
+      this.longueur = longueur;
+      this.largeur = largeur;
+      this.nom = "rectangle";
+    }
+
+    afficher() {
+      return `${this.nom}: longueur=${this.longueur}, largeur=${this.largeur}`;
+    }
+
+    surface() {
+      return this.longueur * this.largeur;
+    }
+  }
+
+  // Classe Carre héritant de Rectangle
+  class Carre extends Rectangle {
+    constructor(cote = 0) {
+      super(cote, cote);
+      this.nom = "carré";
+    }
+  }
+
+  // Classe Point
+  class Point {
+    constructor(x = 0.0, y = 0.0) {
+      this.x = x;
+      this.y = y;
+    }
+  }
+
+  // Classe Segment
+  class Segment {
+    constructor(x1 = 0, y1 = 0, x2 = 0, y2 = 0) {
+      this.orig = new Point(x1, y1);
+      this.extrem = new Point(x2, y2);
+    }
+  }
+</script>

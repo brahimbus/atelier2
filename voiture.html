@@ -1,0 +1,39 @@
+<script>
+  // 1. Fonction constructeur Voiture
+  function Voiture(model, marque, annee, type, carburant) {
+    this.model = model;
+    this.marque = marque;
+    this.annee = annee;
+    this.type = type;
+    this.carburant = carburant;
+  }
+
+  // 2. Liste des voitures
+  let voitures = [
+    new Voiture("A3", "Audi", 2020, "Berline", "Diesel"),
+    new Voiture("Golf", "VW", 2019, "Compacte", "Essence"),
+    new Voiture("Tucson", "Hyundai", 2021, "SUV", "Hybride"),
+  ];
+
+  // 3. Héritage pour Hyundai et Ford
+  function Hyundai(model, marque, annee, type, carburant, serie, hybride) {
+    Voiture.call(this, model, marque, annee, type, carburant);
+    this.serie = serie;
+    this.hybride = hybride;
+  }
+
+  Hyundai.prototype = Object.create(Voiture.prototype);
+  Hyundai.prototype.alarmer = function () {
+    return "Alarme activée!";
+  };
+
+  function Ford(model, marque, annee, type, carburant, options) {
+    Voiture.call(this, model, marque, annee, type, carburant);
+    this.options = options;
+  }
+
+  Ford.prototype = Object.create(Voiture.prototype);
+
+  // 4. Tri des voitures par année
+  voitures.sort((a, b) => a.annee - b.annee);
+</script>

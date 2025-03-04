@@ -1,0 +1,37 @@
+<script>
+  // 1. Création des objets natifs
+  function Etudiant(nom, prenom, age, cne) {
+    this.nom = nom;
+    this.prenom = prenom;
+    this.age = age;
+    this.cne = cne;
+  }
+
+  function Professeur(nom, age, cin) {
+    this.nom = nom;
+    this.age = age;
+    this.cin = cin;
+  }
+
+  // 2. Ajout des méthodes
+  Etudiant.prototype.etudier = function () {
+    return `${this.prenom} est en train d'étudier`;
+  };
+
+  Professeur.prototype.enseigner = function () {
+    return `${this.nom} est en train d'enseigner`;
+  };
+
+  // 3. Tri des étudiants
+  let etudiants = [
+    new Etudiant("Dupont", "Jean", 20, "12345"),
+    new Etudiant("Martin", "Alice", 19, "12346"),
+  ];
+
+  etudiants.sort((a, b) => {
+    if (a.nom === b.nom) {
+      return a.prenom.localeCompare(b.prenom);
+    }
+    return a.nom.localeCompare(b.nom);
+  });
+</script>
